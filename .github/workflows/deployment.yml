@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run Bicep build command
-      run: az bicep build --file chapter-1/subscription-scope.bicep
+      run: az bicep build --file mybicep/databricks.bicep
 
   deploy:
     runs-on: ubuntu-latest
@@ -39,5 +39,5 @@ jobs:
         scope: subscription
         region: ${{ env.REGION }}
         deploymentName: ${{ github.run_number }}
-        template: ./chapter-1/subscription-scope.bicep
+        template: ./mybicep/databricks.bicep
         parameters: azureRegion=${{ env.REGION }}
