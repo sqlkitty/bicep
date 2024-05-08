@@ -19,7 +19,7 @@ jobs:
     - name: Setup Node.js 20
       uses: actions/setup-node@v2 
       with:
-          node-version: 'node20'
+          node-version: '20'
     - name: Lint the Bicep code
       run: az bicep build --file mybicep/subscription-scope.bicep
 
@@ -31,7 +31,7 @@ jobs:
     - name: Setup Node.js 20
       uses: actions/setup-node@v2 
       with:
-          node-version: 'node20'
+          node-version: '20'
     - uses: azure/login@v1
       name: Sign in to Azure
       with:
@@ -54,7 +54,7 @@ jobs:
     - name: Setup Node.js 20
       uses: actions/setup-node@v2 
       with:
-          node-version: 'node20'
+          node-version: '20'
     - uses: azure/login@v1
       name: Sign in to Azure
       with:
