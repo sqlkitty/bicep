@@ -16,7 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: 'node20'
+    - name: Setup Node.js 20
+      uses: actions/setup-node@v2 
+      with:
+          node-version: '20'
     - name: Lint the Bicep code
       run: az bicep build --file mybicep/subscription-scope.bicep
 
@@ -25,7 +28,10 @@ jobs:
     needs: [lint]
     steps:
     - uses: actions/checkout@v3
-    - uses: 'node20'
+    - name: Setup Node.js 20
+      uses: actions/setup-node@v2 
+      with:
+          node-version: '20'
     - uses: azure/login@v1
       name: Sign in to Azure
       with:
@@ -45,7 +51,10 @@ jobs:
     needs: [lint, validate]
     steps:
     - uses: actions/checkout@v3
-    - uses: 'node20'
+    - name: Setup Node.js 20
+      uses: actions/setup-node@v2 
+      with:
+          node-version: '20'
     - uses: azure/login@v1
       name: Sign in to Azure
       with:
