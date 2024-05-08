@@ -2,7 +2,7 @@ targetScope = 'subscription'
 
 @description('Azure region location.')
 param azureRegion string = 'eastus2'
-param resourceGroupName string = 'rg-kineteco-dep1-${azureRegion}'
+param resourceGroupName string = 'rg-josephine-dep1-${azureRegion}'
 param projectNameTag string = 'Renewable Energy Path'
 param projectEnvTag string = 'Demo'
 
@@ -23,7 +23,7 @@ module appServices 'modules/web-app.bicep' = {
     azureRegion: azureRegion
     appServiceAppDevName: 'appDev${uniqueString(kinetecoResourceGroup.id)}'
     appServiceAppTestName: 'appTest${uniqueString(kinetecoResourceGroup.id)}'
-    appServicePlanName: 'kineteco-appServicePlan'
+    appServicePlanName: 'josephine-appServicePlan'
     projectEnvTag: projectNameTag
     projectNameTag: projectEnvTag
   }
@@ -34,7 +34,7 @@ module storageServices 'modules/storage.bicep' = {
   name: 'stgDeployment-${uniqueString(kinetecoResourceGroup.id)}'
   params: {
     azureRegion: azureRegion
-    accountNamePrefix: 'kstg1001'
+    accountNamePrefix: 'josephin'
     projectEnvTag: projectNameTag
     projectNameTag: projectEnvTag
   }
@@ -45,6 +45,6 @@ module networkService 'modules/vnet.bicep' = {
   name: 'vnetDeployment-${uniqueString(kinetecoResourceGroup.id)}'
   params: {
     location: azureRegion
-    prefix: 'kineteco-dev'
+    prefix: 'josephine-dev'
   }
 }
